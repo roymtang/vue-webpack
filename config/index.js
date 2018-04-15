@@ -5,7 +5,7 @@ const path = require('path')
 module.exports = {
     dev: {
         // 静态资源文件夹
-        assetsSubDirectory: 'static',
+        assetsSubDirectory: 'resources',
         //发布路径
         assetsPublicPath: '/',
         // 代理配置表，在这里可以配置特定的请求代理到对应的API接口
@@ -28,8 +28,10 @@ module.exports = {
         index: path.resolve(__dirname, '../dist/index.html'),
         // 编译生成的文件目录
         assetsRoot: path.resolve(__dirname, '../dist'),
+        // 需要拷贝的静态资源文件目录
+        assetsDirectory: [],
         // 编译生成的静态文件目录
-        assetsSubDirectory: 'static',
+        assetsSubDirectory: path.resolve(__dirname, '../dist/resources'),
         // 编译发布的根目录，可配置为资源服务器域名或者cdn域名
         assetsPublicPath: '/',
 
@@ -40,6 +42,6 @@ module.exports = {
         // 是否开启生产环境的gzip压缩
         productionGzip: false,
         // 开启gzip压缩的文件的后缀名称，
-        productionGzipExtensions: ['js', 'css'],
+        productionGzipExtensions: ['js', 'css']
     }
 }

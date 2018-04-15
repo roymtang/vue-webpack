@@ -9,6 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const env = require('../config/prod.env')
 
@@ -65,7 +66,17 @@ const webpackConfig = merge(baseWebpackConfig, {
                     ) === 0
                 )
             }
-        })
+        }),
+        new CopyWebpackPlugin([
+            {
+                // 定义要拷贝的资源的源目录
+                from: path.resolve(__dirname, '../src/front/pc-web/resources'),
+                // 定义要拷贝的资源的目标目录
+                to: config.build.assetsSubDirectory,
+                // 忽略拷贝指定的文件，可以使用模糊匹配
+                ignore: ['.*']
+            }
+        ])
     ]
 })
 
