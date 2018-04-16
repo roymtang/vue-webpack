@@ -1,0 +1,45 @@
+文件目录结构：
+
+--build
+    --build.js(webpack编译入口)
+    --utils.js(编译工具类)
+    --webpack.base.conf.js(编译基本配置)
+    --webpack.dev.conf.js(开发环境入口)
+    --webpack.prod.conf.js(生产环境入口)
+--config
+    --index.js(webpack常量)
+    --dev.env.js(开发环境变量)
+    --prod.env.js(生成环境变量)
+--dist
+    --resources(静态资源)
+        --mobile-app
+        --mobile-web
+        --pc-app
+        --pc-web
+    --js
+        --common.js
+    --css
+        --common.css
+    --index.html
+--src
+    --configfiles(配置文件)
+    --front(前端目录)
+        --common(公共目录)
+            --protocol(协议)
+            --router(全局路由)
+            --constant(常量)
+            --returncode(返回码)
+            --gnntutils(封装内)
+        --mobile-app(手机app)
+        --mobile-web(手机web)
+        --pc-app(pc app)
+        --pc-web(pc web)
+            --components(组件)
+                --common(公共组件)
+                --order(页面，如：订单)
+                --index.vue(主页面)
+            --resources(静态资源)
+                --private
+                --public
+            --router(路由)
+

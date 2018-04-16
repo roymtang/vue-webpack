@@ -28,10 +28,15 @@ module.exports = {
         index: path.resolve(__dirname, '../dist/index.html'),
         // 编译生成的文件目录
         assetsRoot: path.resolve(__dirname, '../dist'),
-        // 需要拷贝的静态资源文件目录
-        assetsDirectory: [],
-        // 编译生成的静态文件目录
-        assetsSubDirectory: path.resolve(__dirname, '../dist/resources'),
+        // 编译时拷贝的静态资源文件目录
+        staticAssetsSubDirectory: [
+            {from: path.resolve(__dirname, '../src/front/pc-web/resources'), to: '../dist/resources/pc-web'},
+            {from: path.resolve(__dirname, '../src/front/pc-app/resources'), to: '../dist/resources/pc-app'},
+            {from: path.resolve(__dirname, '../src/front/mobile-web/resources'), to: '../dist/resources/mobile-web'},
+            {from: path.resolve(__dirname, '../src/front/mobile-app/resources'), to: '../dist/resources/mobile-app'}
+        ],
+        // 编译生成的文件目录
+        assetsSubDirectory: '../dist',
         // 编译发布的根目录，可配置为资源服务器域名或者cdn域名
         assetsPublicPath: '/',
 

@@ -20,7 +20,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     devtool: config.build.productionSourceMap ? config.build.devtool : false,
     output: {
         path: config.build.assetsRoot,
-        filename: utils.assetsPath('js/[name].[chunkhash].js'),
+        filename: utils.assetsPath('js/common.[chunkhash].js'),
         chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
     },
     plugins: [
@@ -37,7 +37,7 @@ const webpackConfig = merge(baseWebpackConfig, {
             parallel: true
         }),
         new ExtractTextPlugin({
-            filename: utils.assetsPath('css/[name].[contenthash].css'),
+            filename: utils.assetsPath('css/common.[contenthash].css'),
             allChunks: true,
         }),
         new OptimizeCSSPlugin({
@@ -55,6 +55,7 @@ const webpackConfig = merge(baseWebpackConfig, {
             chunksSortMode: 'dependency'
         }),
         new webpack.HashedModuleIdsPlugin(),
+        new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks (module) {
@@ -67,16 +68,17 @@ const webpackConfig = merge(baseWebpackConfig, {
                 )
             }
         }),
-        new CopyWebpackPlugin([
-            {
-                // 定义要拷贝的资源的源目录
-                from: path.resolve(__dirname, '../src/front/pc-web/resources'),
-                // 定义要拷贝的资源的目标目录
-                to: config.build.assetsSubDirectory,
-                // 忽略拷贝指定的文件，可以使用模糊匹配
-                ignore: ['.*']
-            }
-        ])
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'manifest',
+            minChunks: Infinity
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'app',
+            async: 'vendor-async',
+            children: true,
+            minChunks: 3
+        }),
+        new CopyWebpackPlugin(config.build.staticAssetsSubDirectory),
     ]
 })
 
