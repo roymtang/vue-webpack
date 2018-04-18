@@ -5,7 +5,6 @@ const config = require('../config')
 const merge = require('webpack-merge')
 const path = require('path')
 const baseWebpackConfig = require('./webpack.base.conf')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -40,11 +39,6 @@ module.exports = merge(baseWebpackConfig, {
             'process.env': require('../config/dev.env')
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: 'index.html',
-            inject: true
-        })
-    ]
+        new webpack.NamedModulesPlugin()
+    ].concat(utils.createDevHtml(config.dev.index))
 })

@@ -1,9 +1,9 @@
 <template>
-    <div>pc app index</div>
+    <div>mobile app main</div>
 </template>
 
 <script>
     export default {
-        name: 'PCAppIndex'
+
     }
 </script>

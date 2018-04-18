@@ -1,5 +1,5 @@
 <template>
-    <div>main</div>
+    <div>mobile app main</div>
 </template>
 
 <script>

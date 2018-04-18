@@ -1,5 +1,5 @@
 <template>
-    <div>main</div>
+    <div>pc app index</div>
 </template>
 
 <script>

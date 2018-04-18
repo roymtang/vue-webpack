@@ -2,12 +2,12 @@
  * Created by gnnt on 2018/4/13.
  */
 
-import Main from '../components/main.vue'
+import PCAppMainComponent from '../components/pc-app-main-component'
 
 export default [
     {
-        name: 'pc-app-router',
-        path: '/',
-        component: Main
+        name: 'pc-app',
+        path: '/pcAppMain',
+        component: PCAppMainComponent
     }
 ]

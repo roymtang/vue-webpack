@@ -36,6 +36,7 @@
             </el-row>
         </el-col>
     </el-row>
+
 </template>
 
 <script>
@@ -146,14 +147,13 @@
             }
         },
         created: function () {
-            console.log(this.$route)
+            //console.log(this.$route)
         }
     }
 </script>
 
 
-<style>
-
+<style scoped>
     .class-box {
         margin-top: 20px;
     }

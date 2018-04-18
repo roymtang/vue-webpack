@@ -5,7 +5,6 @@ const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
@@ -20,7 +19,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     devtool: config.build.productionSourceMap ? config.build.devtool : false,
     output: {
         path: config.build.assetsRoot,
-        filename: utils.assetsPath('js/common.[chunkhash].js'),
+        filename: utils.assetsPath('js/[name].[chunkhash].js'),
         chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
     },
     plugins: [
@@ -37,22 +36,11 @@ const webpackConfig = merge(baseWebpackConfig, {
             parallel: true
         }),
         new ExtractTextPlugin({
-            filename: utils.assetsPath('css/common.[contenthash].css'),
+            filename: utils.assetsPath('css/[name].[contenthash].css'),
             allChunks: true,
         }),
         new OptimizeCSSPlugin({
             cssProcessorOptions: config.build.productionSourceMap ? {safe: true, map: {inline: false}} : {safe: true}
-        }),
-        new HtmlWebpackPlugin({
-            filename: config.build.index,
-            template: 'index.html',
-            inject: true,
-            minify: {
-                removeComments: true,
-                collapseWhitespace: true,
-                removeAttributeQuotes: true
-            },
-            chunksSortMode: 'dependency'
         }),
         new webpack.HashedModuleIdsPlugin(),
         new webpack.optimize.ModuleConcatenationPlugin(),
@@ -79,7 +67,7 @@ const webpackConfig = merge(baseWebpackConfig, {
             minChunks: 3
         }),
         new CopyWebpackPlugin(config.build.staticAssetsSubDirectory),
-    ]
+    ].concat(utils.createProdHtml(config.build.index))
 })
 
 if (config.build.productionGzip) {

@@ -28,7 +28,7 @@ for (var v = 0; v < agents.length; v++) {
 
 if (flag) {
     const router = new Router({
-        mode: 'history',
+        mode: 'hash',
         routes: PCAppRouter
     })
 

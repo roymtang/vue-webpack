@@ -20,12 +20,51 @@ module.exports = {
         // 是否展示错误通知
         notifyOnErrors: true,
         // 关闭css的source map
-        cssSourceMap: false
+        cssSourceMap: false,
+        index: [
+            {
+                filename: 'mobile-app-index.html',
+                template: path.resolve(__dirname, '../src/front/mobile-app/mobile-app-index.html'),
+                chunks: ['mobile-app/index']
+            },
+            {
+                filename: 'mobile-web-index.html',
+                template: path.resolve(__dirname, '../src/front/mobile-web/mobile-web-index.html'),
+                chunks: ['mobile-web/index']
+            },
+            {
+                filename: 'pc-app-index.html',
+                template: path.resolve(__dirname, '../src/front/pc-app/pc-app-index.html'),
+                chunks: ['pc-app/index']
+            },
+            {
+                filename: 'pc-web-index.html',
+                template: path.resolve(__dirname, '../src/front/pc-web/pc-web-index.html'),
+                chunks: ['pc-web/index']
+            }
+        ]
     },
 
     build: {
         // index.html文件的生成地方
-        index: path.resolve(__dirname, '../dist/index.html'),
+        index: [
+            {
+                filename: path.resolve(__dirname, '../dist/mobile-web-index.html'),
+                template: path.resolve(__dirname, '../src/front/mobile-web/mobile-web-index.html')
+            },
+            {
+                filename: path.resolve(__dirname, '../dist/mobile-app-index.html'),
+                template: path.resolve(__dirname, '../src/front/mobile-app/mobile-app-index.html')
+            },
+            {
+                filename: path.resolve(__dirname, '../dist/pc-web-index.html'),
+                template: path.resolve(__dirname, '../src/front/pc-web/pc-web-index.html')
+            },
+            {
+                filename: path.resolve(__dirname, '../dist/pc-app-index.html'),
+                template: path.resolve(__dirname, '../src/front/pc-app/pc-app-index.html')
+            }
+        ],
         // 编译生成的文件目录
         assetsRoot: path.resolve(__dirname, '../dist'),
         // 编译时拷贝的静态资源文件目录

@@ -2,6 +2,7 @@
 const path = require('path')
 const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 exports.assetsPath = function (_path) {
     const assetsSubDirectory = process.env.NODE_ENV === 'production'
@@ -48,7 +49,7 @@ exports.cssLoaders = function (options) {
 }
 
 exports.styleLoaders = function (options) {
-    const output = []
+    let output = []
     const loaders = exports.cssLoaders(options)
 
     for (const extension in loaders) {
@@ -60,5 +61,38 @@ exports.styleLoaders = function (options) {
     }
 
     return output
+}
+
+exports.createDevHtml = function (options) {
+    let output = [];
+    options.map(function (item) {
+        output.push(new HtmlWebpackPlugin({
+            filename: item.filename,
+            template: item.template,
+            inject: true,
+            chunks: [item.chunks]
+        }))
+    })
+
+    return output;
+}
+
+exports.createProdHtml = function (options) {
+    let output = [];
+    options.map(function (item) {
+        output.push(new HtmlWebpackPlugin({
+            filename: item.filename,
+            template: item.template,
+            inject: true,
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeAttributeQuotes: true
+            },
+            chunksSortMode: 'dependency'
+        }))
+    })
+
+    return output;
 }
 
