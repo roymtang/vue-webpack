@@ -20,7 +20,7 @@ module.exports = merge(baseWebpackConfig, {
         clientLogLevel: 'warning',
         historyApiFallback: {
             rewrites: [
-                {from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html')},
+                {from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'pc-web-index.html')},
             ],
         },
         hot: true,

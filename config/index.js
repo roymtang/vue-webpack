@@ -25,22 +25,22 @@ module.exports = {
             {
                 filename: 'mobile-app-index.html',
                 template: path.resolve(__dirname, '../src/front/mobile-app/mobile-app-index.html'),
-                chunks: ['mobile-app/index']
+                chunks: ['mobile-app-index']
             },
             {
                 filename: 'mobile-web-index.html',
                 template: path.resolve(__dirname, '../src/front/mobile-web/mobile-web-index.html'),
-                chunks: ['mobile-web/index']
+                chunks: ['mobile-web-index']
             },
             {
                 filename: 'pc-app-index.html',
                 template: path.resolve(__dirname, '../src/front/pc-app/pc-app-index.html'),
-                chunks: ['pc-app/index']
+                chunks: ['pc-app-index']
             },
             {
                 filename: 'pc-web-index.html',
                 template: path.resolve(__dirname, '../src/front/pc-web/pc-web-index.html'),
-                chunks: ['pc-web/index']
+                chunks: ['pc-web-index']
             }
         ]
     },
@@ -49,20 +49,24 @@ module.exports = {
         // index.html文件的生成地方
         index: [
             {
-                filename: path.resolve(__dirname, '../dist/mobile-web-index.html'),
-                template: path.resolve(__dirname, '../src/front/mobile-web/mobile-web-index.html')
-            },
-            {
                 filename: path.resolve(__dirname, '../dist/mobile-app-index.html'),
-                template: path.resolve(__dirname, '../src/front/mobile-app/mobile-app-index.html')
+                template: path.resolve(__dirname, '../src/front/mobile-app/mobile-app-index.html'),
+                chunks: ['mobile-app-index']
             },
             {
-                filename: path.resolve(__dirname, '../dist/pc-web-index.html'),
-                template: path.resolve(__dirname, '../src/front/pc-web/pc-web-index.html')
+                filename: path.resolve(__dirname, '../dist/mobile-web-index.html'),
+                template: path.resolve(__dirname, '../src/front/mobile-web/mobile-web-index.html'),
+                chunks: ['mobile-web-index']
             },
             {
                 filename: path.resolve(__dirname, '../dist/pc-app-index.html'),
-                template: path.resolve(__dirname, '../src/front/pc-app/pc-app-index.html')
+                template: path.resolve(__dirname, '../src/front/pc-app/pc-app-index.html'),
+                chunks: ['pc-app-index']
+            },
+            {
+                filename: path.resolve(__dirname, '../dist/pc-web-index.html'),
+                template: path.resolve(__dirname, '../src/front/pc-web/pc-web-index.html'),
+                chunks: ['pc-web-index']
             }
         ],
         // 编译生成的文件目录

@@ -6,8 +6,8 @@
                 <el-menu :router="true">
                     <el-submenu index="1">
                         <template slot="title"><i class="el-icon-menu"></i>商品管理</template>
-                        <el-menu-item index="/menu/commodityManage/addCommodity">商品发布</el-menu-item>
-                        <el-menu-item index="/menu/commodityManage/commodityOutList">出售中的商品</el-menu-item>
+                        <el-menu-item index="/pcWebMain/commodityManage/addCommodity">商品发布</el-menu-item>
+                        <el-menu-item index="/pcWebMain/commodityManage/commodityOutList">出售中的商品</el-menu-item>
                         <el-menu-item index="1-3">秒杀商品</el-menu-item>
                         <el-menu-item index="1-4">仓库中的商品</el-menu-item>
                         <el-menu-item index="1-5">品种申请</el-menu-item>
@@ -43,7 +43,7 @@
     export default {
         name: 'Mall',
         created: function () {
-            this.$router.push('/menu')
+            this.$router.push('/pcWebMain')
         },
         watch: {
             '$route' (to, from) {

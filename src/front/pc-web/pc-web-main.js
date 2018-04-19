@@ -13,7 +13,7 @@ Vue.use(Router)
 Vue.use(VueAxios, axios)
 
 const router = new Router({
-    mode: 'hash',
+    mode: 'history',
     routes: PCWebRouter
 })
 

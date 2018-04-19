@@ -8,10 +8,10 @@ var webpack = require('webpack')
 module.exports = {
     context: path.resolve(__dirname, '../'),
     entry: {
-        'mobile-app/index': './src/front/mobile-app/mobile-app-main.js',
-        'mobile-web/index': './src/front/mobile-web/mobile-web-main.js',
-        'pc-app/index': './src/front/pc-app/pc-app-main.js',
-        'pc-web/index': './src/front/pc-web/pc-web-main.js'
+        'mobile-app-index': './src/front/mobile-app/mobile-app-main.js',
+        'mobile-web-index': './src/front/mobile-web/mobile-web-main.js',
+        'pc-app-index': './src/front/pc-app/pc-app-main.js',
+        'pc-web-index': './src/front/pc-web/pc-web-main.js'
     },
     output: {
         path: config.build.assetsRoot,
