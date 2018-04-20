@@ -24,6 +24,8 @@
                        @size-change="sizeChangeEvent"
                        @current-change="currentChangeEvent">
         </el-pagination>
+
+        <router-view></router-view>
     </div>
 </template>
 

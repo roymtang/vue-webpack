@@ -19,7 +19,7 @@
             }
         },
         created: function () {
-            this.$router.push('first')
+            this.$router.push('addCommodity/first')
         }
     }
 </script>
