@@ -69,7 +69,7 @@ exports.createDevHtml = function (options) {
         output.push(new HtmlWebpackPlugin({
             filename: item.filename,
             template: item.template,
-            chunks: item.chunks.concat(['vendor', 'manifest']),
+            chunks: item.chunks,
             inject: true
         }))
     })
@@ -83,7 +83,7 @@ exports.createProdHtml = function (options) {
         output.push(new HtmlWebpackPlugin({
             filename: item.filename,
             template: item.template,
-            chunks: item.chunks.concat(['vendor', 'manifest']),
+            chunks: item.chunks,
             inject: true,
             minify: {
                 removeComments: true,

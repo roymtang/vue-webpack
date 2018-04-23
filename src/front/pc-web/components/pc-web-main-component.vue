@@ -1,5 +1,8 @@
 <template>
-    <div>pc web main</div>
+    <div>
+        <p>pc web main</p>
+    </div>
+
 </template>
 
 <script>

@@ -113,5 +113,20 @@ var commodityOutList = [
     }
 ]
 
+var goodsClass = [
+    {
+        id: 0,
+        name: '水果',
+    },
+    {
+        id: 1,
+        name: '酒水'
+    },
+    {
+        id: 2,
+        name: '电器'
+    }
+]
 
-export {commodityOutList}
+
+export {commodityOutList, goodsClass}

@@ -4,16 +4,18 @@ import 'element-ui/lib/theme-chalk/index.css'
 import Router from 'vue-router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueI18n from 'vue-i18n'
 
 import PCWebRouter from './router/pc-web-router'
 import PCWebIndexComponent from './components/pc-web-index-component.vue'
-import VueI18n from 'vue-i18n'
-import messages from 'config/language'
 
+import LangEN from 'src/configfiles/lang/EN'
+import LangCN from 'src/configfiles/lang/zh_CN'
+
+Vue.use(VueI18n)
 Vue.use(ElementUI)
 Vue.use(Router)
 Vue.use(VueAxios, axios)
-Vue.use(VueI18n)
 
 const router = new Router({
     mode: 'history',
@@ -22,7 +24,10 @@ const router = new Router({
 
 const i18n = new VueI18n({
     locale: 'en',
-    messages
+    messages: {
+        'en': LangEN,
+        'zh_CN': LangCN,
+    }
 })
 
 new Vue({

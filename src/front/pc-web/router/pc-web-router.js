@@ -30,21 +30,5 @@ export default [
     {
         path: '/pcWebMain/commodityManage/commodityOutList',
         component: CommodityOutList
-    },
-    {
-        path: '/pcWebMain',
-        children: [
-            {
-                path: 'comm',
-                component: CommodityOutList,
-                children: [
-                    {
-                        path: '1-1',
-                        component: CommodityOutList
-                    }
-                ]
-            }
-
-        ]
     }
 ]

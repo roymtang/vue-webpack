@@ -45,6 +45,12 @@ const webpackConfig = merge(baseWebpackConfig, {
         new webpack.HashedModuleIdsPlugin(),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
+            name: 'common',
+            chunks: ['mobile-app-index', 'mobile-web-index', 'pc-app-index', 'pc-web-index'],
+            filename: 'js/common.js',
+            minChunks: 2
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks (module) {
                 return (
@@ -55,16 +61,6 @@ const webpackConfig = merge(baseWebpackConfig, {
                     ) === 0
                 )
             }
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'manifest',
-            minChunks: Infinity
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'app',
-            async: 'vendor-async',
-            children: true,
-            minChunks: 3
         }),
         new CopyWebpackPlugin(config.build.staticAssetsSubDirectory),
     ].concat(utils.createProdHtml(config.build.index))
