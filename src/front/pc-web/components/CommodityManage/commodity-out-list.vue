@@ -7,7 +7,12 @@
             <el-table-column label="价格" prop="price" align="center"></el-table-column>
             <el-table-column label="收藏数量" prop="collectNum" align="center"></el-table-column>
             <el-table-column label="售出数量" prop="soldNum" align="center"></el-table-column>
-            <el-table-column label="是否推荐" prop="recommend" :formatter="formatterRecommend" align="center"></el-table-column>
+            <el-table-column label="是否推荐" prop="recommend" align="center">
+                <template slot-scope="scope">
+                    <i class="el-icon-success" v-if="scope.row.recommend==1"></i>
+                    <i class="el-icon-error" v-else></i>
+                </template>
+            </el-table-column>
             <el-table-column label="操作" align="center">
                 <template slot-scope="scope">
                     <el-button size="mini" @click="updateGoods(scope.$index, scope.row)">修改</el-button>
@@ -28,7 +33,7 @@
         <router-view></router-view>
 
         <el-dialog title="修改商品信息" :visible.sync="dialogFormVisible">
-            <el-form label-width="80px" :model="newGoods" class="update-form" :rules="rules">
+            <el-form label-width="80px" :model="newGoods" class="update-form" :rules="rules" ref="updateForm">
                 <el-form-item label="商品编号">
                     <el-input v-model="newGoods.goodsID" disabled></el-input>
                 </el-form-item>
@@ -46,7 +51,7 @@
                     </el-select>
                 </el-form-item>
                 <el-form-item label="价格" prop="price">
-                    <el-input v-model.number="newGoods.price"></el-input>
+                    <el-input v-model="newGoods.price"></el-input>
                 </el-form-item>
                 <el-form-item label="收藏数量" prop="collectNum">
                     <el-input v-model.number="newGoods.collectNum"></el-input>
@@ -60,7 +65,7 @@
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="save()">提交</el-button>
-                    <el-button>取消</el-button>
+                    <el-button @click="close()">取消</el-button>
                 </el-form-item>
             </el-form>
         </el-dialog>
@@ -72,6 +77,18 @@
 
     export default {
         data () {
+            var validateFloat = (rule, value, callback, source, options) => {
+                if (value === '') {
+                    callback(new Error('不能为空'));
+                } else {
+                    console.log(options)
+                    if (!Number.isInteger(value)) {
+                        callback(new Error('请输入数字值'));
+                    } else {
+                        callback();
+                    }
+                }
+            }
             return {
                 resultList: [],
                 page: {
@@ -101,7 +118,7 @@
                             required: true, message: '价格不能为空', trigger: 'blur'
                         },
                         {
-                            type: 'float', message: '格式错误'
+                            validator: validateFloat
                         }
                     ],
                     collectNum: [
@@ -144,15 +161,6 @@
 
                 })
             },
-            formatterRecommend: function (row, column) {
-                if (row.recommend == 1) {
-                    //return '<i class="el-icon-success"></i>'
-                    return '是'
-                } else if (row.recommend == 0) {
-                    //return '<i class="el-icon-error"></i>'
-                    return '否'
-                }
-            },
             sizeChangeEvent: function (val) {
                 this.page.pageSize = val
             },
@@ -162,10 +170,20 @@
             },
             updateGoods: function (index, row) {
                 this.dialogFormVisible = true;
-                this.newGoods = commodityOutList[index]
+                this.newGoods = JSON.parse(JSON.stringify(commodityOutList[index]))
             },
             save: function () {
-                commodityOutList[this.newGoods.id] = this.newGoods
+                this.$refs.updateForm.validate((valid) => {
+                    if (valid) {
+                        commodityOutList[this.newGoods.id] = this.newGoods
+                        this.dialogFormVisible = false
+                    } else {
+                        return false;
+                    }
+                })
+            },
+            close: function () {
+                this.newGoods = {}
                 this.dialogFormVisible = false
             }
         }

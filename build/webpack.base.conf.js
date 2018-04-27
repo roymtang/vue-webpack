@@ -45,8 +45,17 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                test: /\.svg$/,
+                loader: 'svg-sprite-loader',
+                include: [path.join(__dirname, './src/front/common/icons')],
+                options: {
+                    symbolId: 'icon-[name]'
+                }
+            },
+            {
+                test: /\.(png|jpe?g|gif)(\?.*)?$/,
                 loader: 'url-loader',
+                exclude: [path.join(__dirname, './src/front/common/icons')],
                 options: {
                     limit: 10000,
                     name: utils.assetsPath('img/[name].[hash:7].[ext]')
