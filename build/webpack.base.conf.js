@@ -4,6 +4,9 @@ const utils = require('./utils')
 const config = require('../config')
 var webpack = require('webpack')
 
+function resolve(dir) {
+    return path.join(__dirname, '..', dir)
+}
 
 module.exports = {
     context: path.resolve(__dirname, '../'),
@@ -22,9 +25,8 @@ module.exports = {
         extensions: ['.js', '.vue', '.json'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-            'src': path.resolve(__dirname, '../src'),
+            'src': resolve('src'),
             'config': path.resolve(__dirname, '../config'),
-            'assets': path.resolve(__dirname, '../src/assets'),
             'components': path.resolve(__dirname, '../src/components'),
             'mobileWeb': path.resolve(__dirname, '../src/front/mobile-web'),
             'mobileApp': path.resolve(__dirname, '../src/front/mobile-app'),
@@ -41,21 +43,21 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                include: path.join(__dirname, './src'),
+                include: resolve('src'),
                 exclude: /node_modules/
             },
             {
                 test: /\.svg$/,
                 loader: 'svg-sprite-loader',
-                include: [path.join(__dirname, './src/front/common/icons')],
+                include: [resolve('src/front/common/icons')],
                 options: {
                     symbolId: 'icon-[name]'
                 }
             },
             {
-                test: /\.(png|jpe?g|gif)(\?.*)?$/,
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader: 'url-loader',
-                exclude: [path.join(__dirname, './src/front/common/icons')],
+                exclude: [resolve('src/front/common/icons')],
                 options: {
                     limit: 10000,
                     name: utils.assetsPath('img/[name].[hash:7].[ext]')
@@ -78,12 +80,5 @@ module.exports = {
                 }
             }
         ]
-    },
-    plugins: [
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery'
-        })
-    ]
-
+    }
 }

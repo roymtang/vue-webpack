@@ -7,6 +7,7 @@ import AddCommodity from '../components/CommodityManage/commodity-add'
 import AddFirst from '../components/CommodityManage/add-first'
 import AddSecond from '../components/CommodityManage/add-second'
 import CommodityOutList from '../components/CommodityManage/commodity-out-list'
+import IconList from '../components/iconManage/icon-list.vue'
 
 export default [
     {
@@ -30,5 +31,9 @@ export default [
     {
         path: '/pcWebMain/commodityManage/commodityOutList',
         component: CommodityOutList
+    },
+    {
+        path: '/pcWebMain/iconManage/iconList',
+        component: IconList
     }
 ]

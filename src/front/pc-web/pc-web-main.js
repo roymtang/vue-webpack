@@ -12,6 +12,12 @@ import PCWebIndexComponent from './components/pc-web-index-component.vue'
 import LangEN from 'src/configfiles/lang/EN'
 import LangCN from 'src/configfiles/lang/zh_CN'
 
+import IconSvg from 'pcWeb/common/icon-svg'
+Vue.component('icon', IconSvg)
+const requireAll = requireContext => requireContext.keys().map(requireContext)
+const req = require.context('../common/icons', false, /\.svg$/)
+requireAll(req)
+
 Vue.use(VueI18n)
 Vue.use(ElementUI)
 Vue.use(Router)

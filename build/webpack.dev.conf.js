@@ -5,11 +5,13 @@ const config = require('../config')
 const merge = require('webpack-merge')
 const path = require('path')
 const baseWebpackConfig = require('./webpack.base.conf')
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const portfinder = require('portfinder')
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
-module.exports = merge(baseWebpackConfig, {
+const devWebpackConfig = merge(baseWebpackConfig, {
     module: {
         rules: utils.styleLoaders({sourceMap: config.dev.cssSourceMap, usePostCSS: true})
     },
@@ -41,4 +43,28 @@ module.exports = merge(baseWebpackConfig, {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin()
     ].concat(utils.createDevHtml(config.dev.index))
+})
+
+module.exports = new Promise((resolve, reject) => {
+    portfinder.basePort = process.env.PORT || config.dev.port
+    portfinder.getPort((err, port) => {
+        if (err) {
+            reject(err)
+        } else {
+            // publish the new Port, necessary for e2e tests
+            process.env.PORT = port
+            // add port to devServer config
+            devWebpackConfig.devServer.port = port
+
+            // Add FriendlyErrorsPlugin
+            devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
+                compilationSuccessInfo: {
+                    messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
+                },
+                onErrors: config.dev.notifyOnErrors ? utils.createNotifierCallback() : undefined
+            }))
+
+            resolve(devWebpackConfig)
+        }
+    })
 })

@@ -8,7 +8,7 @@
                         <template slot="title"><i class="el-icon-menu"></i>商品管理</template>
                         <el-menu-item index="/pcWebMain/commodityManage/addCommodity">商品发布</el-menu-item>
                         <el-menu-item index="/pcWebMain/commodityManage/commodityOutList">出售中的商品</el-menu-item>
-                        <el-menu-item index="1-3">秒杀商品</el-menu-item>
+                        <el-menu-item index="/pcWebMain/iconManage/iconList">图标管理</el-menu-item>
                         <el-menu-item index="1-4">仓库中的商品</el-menu-item>
                         <el-menu-item index="1-5">品种申请</el-menu-item>
                     </el-submenu>
