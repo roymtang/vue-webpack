@@ -1,6 +1,8 @@
 <template>
     <el-container>
-        <el-header></el-header>
+        <el-header>
+            <setting-lang></setting-lang>
+        </el-header>
         <el-container>
             <el-aside width="220px">
                 <el-menu :router="true">
@@ -8,7 +10,7 @@
                         <template slot="title"><i class="el-icon-menu"></i>商品管理</template>
                         <el-menu-item index="/pcWebMain/commodityManage/addCommodity">商品发布</el-menu-item>
                         <el-menu-item index="/pcWebMain/commodityManage/commodityOutList">出售中的商品</el-menu-item>
-                        <el-menu-item index="/pcWebMain/iconManage/iconList">图标管理</el-menu-item>
+                        <el-menu-item index="/pcWebMain/iconManage/iconList">{{$t('menu.iconManage')}}</el-menu-item>
                         <el-menu-item index="1-4">仓库中的商品</el-menu-item>
                         <el-menu-item index="1-5">品种申请</el-menu-item>
                     </el-submenu>
@@ -38,9 +40,11 @@
 </template>
 
 <script>
+    import SettingLang from './common/setting-lang.vue'
     export default {
         name: 'Mall',
-        created: function () {
+        components: {SettingLang},
+        created () {
             this.$router.push('/pcWebMain')
         },
         watch: {
