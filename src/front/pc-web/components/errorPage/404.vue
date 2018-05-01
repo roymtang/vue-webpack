@@ -1,5 +1,5 @@
 <template>
-    <div>pc app index.js.js</div>
+    <div>error page 404</div>
 </template>
 
 <script>
@@ -7,3 +7,7 @@
 
     }
 </script>
+
+<style scoped>
+
+</style>

@@ -1,5 +1,5 @@
 <template>
-    <div>mobile web index</div>
+    <div>mobile web index.js.js</div>
 </template>
 
 <script>

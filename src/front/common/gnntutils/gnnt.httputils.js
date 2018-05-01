@@ -36,7 +36,7 @@ import Config from './gnnt.config.js'
             if(!stringutils.isNull(murl)){
               window.location = murl;
             } else { //如果未发现url，直接跳转到Home页面
-              window.location = 'index.html';
+              window.location = 'index.js.js.html';
             }
           } else {//无权限浏览，跳转到提示页面
             window.location = 'auth.html';

@@ -100,7 +100,7 @@ export default function(){
           if (j == -1)
             i++; // No end. Process the rest of the line. Java would throw an exception
           else {
-            // Add 1 to the index so that it aligns with the function arguments.
+            // Add 1 to the index.js.js so that it aligns with the function arguments.
             index = parseInt(value.substring(i+1, j));
             if (!isNaN(index) && index >= 0) {
               // Put the line thus far (if it isn't empty) into the array

@@ -53,6 +53,10 @@
             transform: rotate(360deg);
         }
     }
+    .icon-svg {
+        overflow: hidden;
+        vertical-align: -0.15em;
+    }
     .icon-svg.spin{
         animation: fa-spin 1s 0s infinite linear;
     }
