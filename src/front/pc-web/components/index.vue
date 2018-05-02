@@ -8,9 +8,9 @@
                 <el-menu :router="true">
                     <el-submenu index="1">
                         <template slot="title"><i class="el-icon-menu"></i>商品管理</template>
-                        <el-menu-item index="/pcWebMain/commodityManage/addCommodity">商品发布</el-menu-item>
-                        <el-menu-item index="/pcWebMain/commodityManage/commodityOutList">出售中的商品</el-menu-item>
-                        <el-menu-item index="/pcWebMain/iconManage/iconList">{{$t('menu.iconManage')}}</el-menu-item>
+                        <el-menu-item index="addCommodity">商品发布</el-menu-item>
+                        <el-menu-item index="commodityOutList">出售中的商品</el-menu-item>
+                        <el-menu-item index="iconList">{{$t('menu.iconManage')}}</el-menu-item>
                         <el-menu-item index="1-4">仓库中的商品</el-menu-item>
                         <el-menu-item index="1-5">品种申请</el-menu-item>
                     </el-submenu>
@@ -40,12 +40,11 @@
 </template>
 
 <script>
-    import SettingLang from './common/setting-lang.vue'
+    import SettingLang from './Common/setting-lang.vue'
     export default {
-        name: 'Mall',
         components: {SettingLang},
         created () {
-            this.$router.push('/pcWebMain')
+            this.$router.push('main')
         },
         watch: {
             '$route' (to, from) {
@@ -57,7 +56,7 @@
     }
 </script>
 
-<style>
+<style rel="stylesheet/scss" scoped>
     .el-header {
         background-color: #66b1ff;
     }

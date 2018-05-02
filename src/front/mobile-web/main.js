@@ -5,8 +5,8 @@ import Router from 'vue-router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-import PCAppRouter from './router/pc-app-router'
-import PCAppIndexComponent from './components/pc-app-index-component'
+import MobileWebRouter from './router/index'
+import MobileWebIndexComponent from './components/mobile-web-index-component'
 
 Vue.use(ElementUI)
 Vue.use(Router)
@@ -14,12 +14,12 @@ Vue.use(VueAxios, axios)
 
 const router = new Router({
     mode: 'hash',
-    routes: PCAppRouter
+    routes: MobileWebRouter
 })
 
 new Vue({
     el: '#app',
     router,
-    components: {PCAppIndexComponent},
-    template: "<PCAppIndexComponent/>"
+    components: {MobileWebIndexComponent},
+    template: "<MobileWebIndexComponent/>"
 })

@@ -11,10 +11,10 @@ function resolve(dir) {
 module.exports = {
     context: path.resolve(__dirname, '../'),
     entry: {
-        'mobile-app-index': './src/front/mobile-app/mobile-app-main.js',
-        'mobile-web-index': './src/front/mobile-web/mobile-web-main.js',
-        'pc-app-index': './src/front/pc-app/pc-app-main.js',
-        'pc-web-index': './src/front/pc-web/pc-web-main.js',
+        'mobile-app-index': './src/front/mobile-app/main.js',
+        'mobile-web-index': './src/front/mobile-web/main.js',
+        'pc-app-index': './src/front/pc-app/main.js',
+        'pc-web-index': './src/front/pc-web/main.js',
     },
     output: {
         path: config.build.assetsRoot,
@@ -25,7 +25,7 @@ module.exports = {
         extensions: ['.js', '.vue', '.json'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-            'src': resolve('src'),
+            'src': path.resolve(__dirname, '../src'),
             'config': path.resolve(__dirname, '../config'),
             'components': path.resolve(__dirname, '../src/components'),
             'mobileWeb': path.resolve(__dirname, '../src/front/mobile-web'),

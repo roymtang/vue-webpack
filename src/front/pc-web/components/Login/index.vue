@@ -5,12 +5,12 @@
             <el-form :model="loginInfo" :rules="rules" ref="loginForm">
                 <el-form-item prop="username">
                     <el-input v-model="loginInfo.username" placeholder="请输入用户名">
-                        <icon-svg slot="prefix" name="username"></icon-svg>
+                        <icon slot="prefix" name="username"></icon>
                     </el-input>
                 </el-form-item>
                 <el-form-item prop="password">
                     <el-input type="password" v-model="loginInfo.password" placeholder="请输入密码">
-                        <icon-svg slot="prefix" name="password"></icon-svg>
+                        <icon slot="prefix" name="password"></icon>
                     </el-input>
                 </el-form-item>
                 <el-form-item>
@@ -22,10 +22,8 @@
 </template>
 
 <script>
-    import IconSvg from "../../../common/components/icon-svg";
     export default {
         name: "index",
-        components: {IconSvg},
         data () {
             return {
                 loginInfo: {
@@ -47,7 +45,7 @@
                 this.$refs[formName].validate(valid => {
                     if (valid) {
                         this.$store.dispatch('LoginByUsername', this.loginInfo).then(() => {
-                            this.$router.push({path: '/permission'})
+                            this.$router.push({path: '/'})
                         }).catch(() => {
 
                         })

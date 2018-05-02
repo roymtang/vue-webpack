@@ -1,4 +1,4 @@
-import {getToken, setToken} from "../../utils/auth"
+import {getToken, setToken, removeToken} from "../../utils/auth"
 import { loginByUsername, logout, getUserInfo } from 'pcWeb/api/login'
 
 const user = {
@@ -62,6 +62,13 @@ const user = {
                     commit('SET_NAME', data.name)
                     resolve()
                 })
+            })
+        },
+        FedLogOut({ commit }) {
+            return new Promise(resolve => {
+                commit('SET_TOKEN', '')
+                removeToken()
+                resolve()
             })
         }
     }

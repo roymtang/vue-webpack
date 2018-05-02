@@ -7,70 +7,74 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import PCWebMainComponent from '../components/pc-web-main-component'
-import AddCommodity from '../components/CommodityManage/commodity-add'
-import AddFirst from '../components/CommodityManage/add-first'
-import AddSecond from '../components/CommodityManage/add-second'
-import CommodityOutList from '../components/CommodityManage/commodity-out-list'
-import IconList from '../components/iconManage/icon-list.vue'
-
-import Login from '../components/login'
-import ErrorPage404 from '../components/errorPage/404'
-import Permission from '../components/permission/permission'
+const Main = resolve => require(['../components/main.vue'], resolve)
+const Index = resolve => require(['../components/index.vue'], resolve)
+const Login = resolve => require(['../components/Login'], resolve)
+const ErrorPage401 = resolve => require(['../components/ErrorPage/401'], resolve)
+const ErrorPage404 = resolve => require(['../components/ErrorPage/404'], resolve)
+const IconList = resolve => require(['../components/IconManage/icon-list.vue'], resolve)
+const CommodityOutList = resolve => require(['../components/CommodityManage/commodity-out-list'], resolve)
+const AddCommodity = resolve => require(['../components/CommodityManage/commodity-add'], resolve)
+const AddFirst = resolve => require(['../components/CommodityManage/add-first'], resolve)
+const AddSecond = resolve => require(['../components/CommodityManage/add-second'], resolve)
 
 
 export const constantRouterMap = [
     {
         path: '/login',
-        component: Login,
-        hidden: true
+        component: Login
+    },
+    {
+        path: '/401',
+        component: ErrorPage401
     },
     {
         path: '/404',
-        component: ErrorPage404,
-        hidden: true
-    },
-    {
-        path: '/pcWebMain',
-        component: PCWebMainComponent
-    },
-    {
-        path: '/pcWebMain/commodityManage/addCommodity',
-        component: AddCommodity,
-        children: [
-            {
-                path: 'first',
-                component: AddFirst
-            },
-            {
-                path: 'second',
-                component: AddSecond
-            }
-        ]
-    },
-    {
-        path: '/pcWebMain/commodityManage/commodityOutList',
-        component: CommodityOutList
-    },
-    {
-        path: '/pcWebMain/iconManage/iconList',
-        component: IconList
+        component: ErrorPage404
     }
 ]
 
 export const asyncRouterMap = [
     {
-        path: '/permission',
-        component: Permission
+        path: '/',
+        component: Index,
+        children: [
+            {
+                path: 'main',
+                component: Main
+            },
+            {
+                path: 'addCommodity',
+                component: AddCommodity,
+                children: [
+                    {
+                        path: 'first',
+                        component: AddFirst
+                    },
+                    {
+                        path: 'second',
+                        component: AddSecond
+                    }
+                ]
+            },
+            {
+                path: 'commodityOutList',
+                component: CommodityOutList
+            },
+            {
+                path: 'iconList',
+                component: IconList
+            }
+        ]
     },
     {
         path: '*',
-        redirect: '/404',
-        hidden: true
+        redirect: '/404'
     }
 ];
 
 export default new Router({
-    model: 'history',
-    routes: constantRouterMap
+    mode: 'history',
+    routes: constantRouterMap,
+    scrollBehavior: () => ({y: 0})
 });

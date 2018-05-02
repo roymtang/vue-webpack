@@ -24,22 +24,22 @@ module.exports = {
         index: [
             {
                 filename: 'mobile-app-index.html',
-                template: path.resolve(__dirname, '../src/front/mobile-app/mobile-app-index.html'),
+                template: path.resolve(__dirname, '../src/front/mobile-app/index.html'),
                 chunks: ['mobile-app-index', 'common', 'vendor']
             },
             {
                 filename: 'mobile-web-index.html',
-                template: path.resolve(__dirname, '../src/front/mobile-web/mobile-web-index.html'),
+                template: path.resolve(__dirname, '../src/front/mobile-web/index.html'),
                 chunks: ['mobile-web-index', 'common', 'vendor']
             },
             {
                 filename: 'pc-app-index.html',
-                template: path.resolve(__dirname, '../src/front/pc-app/pc-app-index.html'),
+                template: path.resolve(__dirname, '../src/front/pc-app/index.html'),
                 chunks: ['pc-app-index', 'common', 'vendor']
             },
             {
                 filename: 'pc-web-index.html',
-                template: path.resolve(__dirname, '../src/front/pc-web/pc-web-index.html'),
+                template: path.resolve(__dirname, '../src/front/pc-web/index.html'),
                 chunks: ['pc-web-index', 'common', 'vendor']
             }
         ]
@@ -50,22 +50,22 @@ module.exports = {
         index: [
             {
                 filename: path.resolve(__dirname, '../dist/mobile-app-index.html'),
-                template: path.resolve(__dirname, '../src/front/mobile-app/mobile-app-index.html'),
+                template: path.resolve(__dirname, '../src/front/mobile-app/index.html'),
                 chunks: ['mobile-app-index', 'common', 'vendor']
             },
             {
                 filename: path.resolve(__dirname, '../dist/mobile-web-index.html'),
-                template: path.resolve(__dirname, '../src/front/mobile-web/mobile-web-index.html'),
+                template: path.resolve(__dirname, '../src/front/mobile-web/index.html'),
                 chunks: ['mobile-web-index', 'common', 'vendor']
             },
             {
                 filename: path.resolve(__dirname, '../dist/pc-app-index.html'),
-                template: path.resolve(__dirname, '../src/front/pc-app/pc-app-index.html'),
+                template: path.resolve(__dirname, '../src/front/pc-app/index.html'),
                 chunks: ['pc-app-index', 'common', 'vendor']
             },
             {
                 filename: path.resolve(__dirname, '../dist/pc-web-index.html'),
-                template: path.resolve(__dirname, '../src/front/pc-web/pc-web-index.html'),
+                template: path.resolve(__dirname, '../src/front/pc-web/index.html'),
                 chunks: ['pc-web-index', 'common', 'vendor']
             }
         ],
