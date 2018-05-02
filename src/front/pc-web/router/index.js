@@ -19,6 +19,8 @@ const AddFirst = resolve => require(['../components/CommodityManage/add-first'],
 const AddSecond = resolve => require(['../components/CommodityManage/add-second'], resolve)
 
 
+const Layout = resolve => require(['../views/layout/layout'], resolve)
+
 export const constantRouterMap = [
     {
         path: '/login',
@@ -37,7 +39,7 @@ export const constantRouterMap = [
 export const asyncRouterMap = [
     {
         path: '/',
-        component: Index,
+        component: Layout,
         children: [
             {
                 path: 'main',

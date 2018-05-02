@@ -4,7 +4,7 @@
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose"
-            :collapse="isCollapse">
+            :collapse="sidebar.isCollapse">
         <el-submenu index="1">
             <template slot="title">
                 <i class="el-icon-location"></i>
@@ -42,8 +42,8 @@
     export default {
         data() {
             return {
-                isCollapse: true
-            };
+
+            }
         },
         methods: {
             handleOpen(key, keyPath) {
@@ -51,6 +51,11 @@
             },
             handleClose(key, keyPath) {
                 console.log(key, keyPath);
+            }
+        },
+        computed: {
+            sidebar() {
+                return this.$store.state.app.sidebar
             }
         }
     }
