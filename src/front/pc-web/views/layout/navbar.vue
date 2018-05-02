@@ -29,7 +29,7 @@
     }
 </script>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
+<style rel="stylesheet/less" lang="less" scoped>
     @keyframes collapse-btn {
         0% {
             transform: rotate(0deg)

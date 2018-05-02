@@ -25,7 +25,7 @@
     }
 </script>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
+<style rel="stylesheet/less" lang="less" scoped>
     .sidebar-container {
         width: 200px;
         position: absolute;
