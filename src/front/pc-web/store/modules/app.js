@@ -4,7 +4,8 @@ const app = {
     state: {
         sidebar: {
             isCollapse: !!+Cookies.get('sidebarStatus')
-        }
+        },
+        language: Cookies.get('language') || 'zh_CN'
     },
     mutations: {
         TOGGLE_SIDEBAR: state => {
@@ -15,11 +16,18 @@ const app = {
             }
 
             state.sidebar.isCollapse = !state.sidebar.isCollapse
+        },
+        SET_LANGUAGE: (state, language) => {
+            state.language = language
+            Cookies.set('language', language)
         }
     },
     actions: {
         toggleSidebar ({commit}) {
             commit('TOGGLE_SIDEBAR')
+        },
+        setLanguage({commit}, language) {
+            commit('SET_LANGUAGE', language)
         }
     }
 }

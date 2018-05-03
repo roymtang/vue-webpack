@@ -3,6 +3,7 @@
         <sidebar class="sidebar-container"></sidebar>
         <div class="main-container">
             <navbar></navbar>
+            <main-container></main-container>
         </div>
     </div>
 </template>
@@ -10,8 +11,10 @@
 <script>
     import Sidebar from './sidebar.vue'
     import Navbar from './navbar.vue'
+    import MainContainer from './main.vue'
+
     export default {
-        components: {Sidebar, Navbar},
+        components: {Sidebar, Navbar, MainContainer},
         data () {
             return {
 
@@ -31,19 +34,18 @@
         position: absolute;
         left: 0;
         top: 0;
-        height: 100%;
+        min-height: 100%;
         overflow: auto;
-        transition: all 0.2s ease 0s;
+        transition: all 0.3s ease 0s;
     }
     .main-container {
-        background-color: #8c939d;
         overflow: hidden;
         position: absolute;
         left: 200px;
         right: 0px;
         top: 0;
-        height: 100%;
-        transition: all 0.2s ease 0s;
+        min-height: 100%;
+        transition: all 0.3s ease 0s;
     }
     .collapse .sidebar-container {
         width: 64px;

@@ -55,7 +55,8 @@
     }
     .icon-svg {
         overflow: hidden;
-        vertical-align: -0.15em;
+        vertical-align: middle;
+        margin-right: 5px;
     }
     .icon-svg.spin{
         animation: fa-spin 1s 0s infinite linear;

@@ -8,18 +8,17 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const Main = resolve => require(['../components/main.vue'], resolve)
-const Index = resolve => require(['../components/index.vue'], resolve)
 const Login = resolve => require(['../components/Login'], resolve)
 const ErrorPage401 = resolve => require(['../components/ErrorPage/401'], resolve)
 const ErrorPage404 = resolve => require(['../components/ErrorPage/404'], resolve)
-const IconList = resolve => require(['../components/IconManage/icon-list.vue'], resolve)
-const CommodityOutList = resolve => require(['../components/CommodityManage/commodity-out-list'], resolve)
-const AddCommodity = resolve => require(['../components/CommodityManage/commodity-add'], resolve)
-const AddFirst = resolve => require(['../components/CommodityManage/add-first'], resolve)
-const AddSecond = resolve => require(['../components/CommodityManage/add-second'], resolve)
 
 
 const Layout = resolve => require(['../views/layout/layout'], resolve)
+const Index = resolve => require(['../views/index'], resolve)
+const IconIndex = resolve => require(['../views/icons'], resolve)
+const Line = resolve => require(['../views/charts/line'], resolve)
+const Graph = resolve => require(['../views/charts/graph'], resolve)
+const TableSimpleDemo = resolve => require(['../views/table/table-simple-demo'], resolve)
 
 export const constantRouterMap = [
     {
@@ -33,39 +32,59 @@ export const constantRouterMap = [
     {
         path: '/404',
         component: ErrorPage404
+    },
+    {
+        path: '/',
+        component: Layout
     }
 ]
 
 export const asyncRouterMap = [
     {
-        path: '/',
+        path: '/index',
         component: Layout,
+        redirect: '/index/index',
         children: [
             {
-                path: 'main',
-                component: Main
+                path: 'index',
+                component: Index
+            }
+        ]
+    },
+    {
+        path: '/icons',
+        component: Layout,
+        redirect: '/icons/index',
+        children: [
+            {
+                path: 'index',
+                component: IconIndex
+            }
+        ]
+    },
+    {
+        path: '/charts',
+        component: Layout,
+        redirect: 'none',
+        children: [
+            {
+                path: 'line',
+                component: Line
             },
             {
-                path: 'addCommodity',
-                component: AddCommodity,
-                children: [
-                    {
-                        path: 'first',
-                        component: AddFirst
-                    },
-                    {
-                        path: 'second',
-                        component: AddSecond
-                    }
-                ]
-            },
+                path: 'graph',
+                component: Graph
+            }
+        ]
+    },
+    {
+        path: '/table',
+        component: Layout,
+        redirect: 'none',
+        children: [
             {
-                path: 'commodityOutList',
-                component: CommodityOutList
-            },
-            {
-                path: 'iconList',
-                component: IconList
+                path: 'simpleDemo',
+                component: TableSimpleDemo
             }
         ]
     },

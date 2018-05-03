@@ -1,11 +1,14 @@
 <template>
     <div class="nav-container">
         <div class="collapse-btn" @click="toggleSidebar()"><icon name="menu" scale="2" :class="svg"></icon></div>
+        <setting-lang></setting-lang>
     </div>
 </template>
 
 <script>
+    import SettingLang from '../../components/Common/setting-lang.vue'
     export default {
+        components: {SettingLang},
         data () {
             return {
                 svg: ''
@@ -40,15 +43,17 @@
     }
 
     .nav-container {
+        overflow: hidden;
         .collapse-btn {
+            float: left;
             :hover {
                 cursor: pointer;
             }
             .collapse-svg {
-                animation: collapse-btn 1s;
+                animation: collapse-btn .5s;
             }
             .collapse-svg1 {
-                animation: collapse-btn 1s reverse;
+                animation: collapse-btn .5s reverse;
             }
         }
     }

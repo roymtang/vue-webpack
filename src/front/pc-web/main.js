@@ -7,7 +7,7 @@ import VueAxios from 'vue-axios'
 import App from './App.vue'
 
 import router from './router'
-import i18n from 'src/front/common/lang'
+import i18n from 'src/front/common/language'
 import store from './store'
 
 import 'src/front/common/icons'
