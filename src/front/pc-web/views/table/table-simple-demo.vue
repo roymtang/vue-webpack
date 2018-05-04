@@ -73,6 +73,7 @@
 </template>
 
 <script>
+    import rules from 'src/front/common/validation'
     export default {
         data () {
             return {
@@ -102,6 +103,9 @@
                     price: [
                         {
                             required: true, message: '价格不能为空', trigger: 'blur'
+                        },
+                        {
+                            validator: rules.validateDecimal2
                         }
                     ],
                     num: [
@@ -109,7 +113,7 @@
                             required: true, message: '数量', trigger: 'blur'
                         },
                         {
-                            type: 'integer', message: '格式错误'
+                            validator: rules.validateInteger
                         }
                     ]
                 }

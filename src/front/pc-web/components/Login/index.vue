@@ -27,8 +27,8 @@
         data () {
             return {
                 loginInfo: {
-                    username: '',
-                    password: ''
+                    username: 'admin',
+                    password: '111111'
                 },
                 rules: {
                     username: [

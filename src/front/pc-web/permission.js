@@ -16,7 +16,6 @@ function hasPermission(roles, permissionRoles) {
 }
 
 router.beforeEach((to, from, next) => {
-    console.log(to.fullPath)
     if (getToken()) {
         if (to.path === '/login') {
             next({path: ''})

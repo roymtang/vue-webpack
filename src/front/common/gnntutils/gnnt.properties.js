@@ -50,7 +50,7 @@ export default function(){
       i = 0;
       while ((i = value.indexOf('\\', i)) != -1) {
         if (value[i+1] == 't')
-          value = value.substring(0, i) + '\t' + value.substring((i++) + 2); // tab
+          value = value.substring(0, i) + '\t' + value.substring((i++) + 2); // tabs
         else if (value[i+1] == 'r')
           value = value.substring(0, i) + '\r' + value.substring((i++) + 2); // return
         else if (value[i+1] == 'n')

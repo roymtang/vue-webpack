@@ -42,4 +42,8 @@
                 --private
                 --public
             --router(路由)
+            --mock(模拟数据)
+            --store(状态管理)
+            --utils(工具)
+            --views(页面)
 

@@ -1,6 +1,6 @@
 <template>
     <div :class="{collapse: sidebar.isCollapse}">
-        <sidebar class="sidebar-container"></sidebar>
+        <sidebar class="sidebar-container" ></sidebar>
         <div class="main-container">
             <navbar></navbar>
             <main-container></main-container>
@@ -13,6 +13,8 @@
     import Navbar from './navbar.vue'
     import MainContainer from './main.vue'
 
+    import {mapGetters} from 'vuex'
+
     export default {
         components: {Sidebar, Navbar, MainContainer},
         data () {
@@ -21,16 +23,14 @@
             }
         },
         computed: {
-            sidebar() {
-                return this.$store.state.app.sidebar
-            }
+            ...mapGetters(['sidebar'])
         }
     }
 </script>
 
-<style rel="stylesheet/less" lang="less" scoped>
+<style rel="stylesheet/less" lang="less">
     .sidebar-container {
-        width: 200px;
+        width: 199px;
         position: absolute;
         left: 0;
         top: 0;
