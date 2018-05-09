@@ -3,7 +3,7 @@ import { loginByUsername, logout, getUserInfo } from 'pcWeb/api/login'
 
 const user = {
     state: {
-        user: '',
+        user: sessionStorage.getItem('user'),
         status: '',
         code: '',
         token: getToken(),
@@ -19,6 +19,9 @@ const user = {
         },
         SET_ROLES: (state, roles) => {
             state.roles = roles
+        },
+        SET_USER: (state, userInfo) => {
+            state.user = userInfo
         }
     },
     actions: {
@@ -28,6 +31,8 @@ const user = {
                 loginByUsername(username, userInfo.password).then(response => {
                     const data = response.data
                     commit('SET_TOKEN', data.token)
+                    commit('SET_USER', JSON.stringify(data))
+                    sessionStorage.setItem('user', JSON.stringify(data))
                     setToken(data.token)
                     resolve()
                 }).catch(error => {

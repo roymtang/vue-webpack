@@ -6,11 +6,13 @@ export function loginByUsername(username, password) {
         password
     }
 
-    return request({
+    let result = request({
         url: '/api/login',
         method: 'post',
         data
     })
+
+    return result
 }
 
 export function logout() {
@@ -18,9 +20,11 @@ export function logout() {
 }
 
 export function getUserInfo(token) {
-    return request({
+    let result = request({
         url: '/api/userInfo',
         method: 'get',
         params: {token}
     })
+
+    return result
 }

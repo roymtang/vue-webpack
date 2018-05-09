@@ -1,4 +1,4 @@
-import { asyncRouterMap, constantRouterMap } from 'pcWeb/router'
+import { userRouterMap, constantRouterMap } from 'pcWeb/router'
 
 
 function hasPermission(roles, route) {
@@ -9,8 +9,8 @@ function hasPermission(roles, route) {
     }
 }
 
-function filterAsyncRouter(asyncRouterMapj, roles) {
-    const accessedRouters = asyncRouterMap.filter(route => {
+function filterAsyncRouter(userRouterMap, roles) {
+    const accessedRouters = userRouterMap.filter(route => {
         if (hasPermission(roles, route)) {
             if (route.children && route.children.length) {
                 route.children = filterAsyncRouter(route.children, roles)
@@ -40,9 +40,9 @@ const permission = {
                 let accessedRouters
 
                 if (roles.indexOf('admin') >= 0) {
-                    accessedRouters = asyncRouterMap
+                    accessedRouters = userRouterMap
                 } else {
-                    accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
+                    accessedRouters = filterAsyncRouter(userRouterMap, roles)
                 }
 
                 commit('SET_ROUTERS', accessedRouters)

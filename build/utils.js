@@ -71,7 +71,8 @@ exports.createDevHtml = function (options) {
             filename: item.filename,
             template: item.template,
             chunks: item.chunks,
-            inject: true
+            inject: true,
+            favicon: path.resolve(__dirname, '../favicon.ico')
         }))
     })
 
@@ -91,7 +92,8 @@ exports.createProdHtml = function (options) {
                 collapseWhitespace: true,
                 removeAttributeQuotes: true
             },
-            chunksSortMode: 'dependency'
+            chunksSortMode: 'dependency',
+            favicon: path.resolve(__dirname, '../favicon.ico')
         }))
     })
 

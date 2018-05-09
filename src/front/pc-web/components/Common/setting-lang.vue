@@ -15,7 +15,8 @@
             changeLang(command) {
                 this.$i18n.locale = command
                 this.$store.dispatch('setLanguage', command)
-                this.$router.go(0)
+//                this.$router.go(0)
+                this.$router.push({path: '/'})
             }
         },
         computed: {

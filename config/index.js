@@ -81,9 +81,9 @@ module.exports = {
         // 编译生成的文件目录
         assetsSubDirectory: '../dist',
         // 编译发布的根目录，可配置为资源服务器域名或者cdn域名
-        assetsPublicPath: '/',
+        assetsPublicPath: '/dist/',
 
-        productionSourceMap: true,
+        productionSourceMap: false,
         // https://webpack.js.org/configuration/devtool/#production
         devtool: '#source-map',
 

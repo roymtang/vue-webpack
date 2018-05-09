@@ -18,7 +18,7 @@ function hasPermission(roles, permissionRoles) {
 router.beforeEach((to, from, next) => {
     if (getToken()) {
         if (to.path === '/login') {
-            next({path: ''})
+            next({path: '/'})
         } else {
             if (store.getters.roles.length === 0) {
                 store.dispatch('GetUserInfo').then(res => {

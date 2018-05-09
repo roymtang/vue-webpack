@@ -4,7 +4,8 @@ const getters = {
     addRouters: state => state.permission.addRouters,
     sidebar: state => state.app.sidebar,
     language: state => state.app.language,
-    routerList: state => state.permission.routers
+    routerList: state => state.permission.routers,
+    userInfo: state => state.user
 }
 
 export default getters
