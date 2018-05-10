@@ -1,6 +1,8 @@
 <template>
     <div class="nav-container">
-        <div class="collapse-btn" @click="toggleSidebar()"><icon name="menu" scale="2" :class="svg"></icon></div>
+        <div class="collapse-btn" @click="toggleSidebar()">
+            <icon name="menu" scale="2"></icon>
+        </div>
         <setting-lang></setting-lang>
     </div>
 </template>
@@ -18,7 +20,7 @@
             toggleSidebar () {
                 this.$store.dispatch('toggleSidebar')
                 this.svg = 'collapse-svg'
-            },
+            }
         },
         computed: {
             svgClass () {
