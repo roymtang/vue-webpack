@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="min-height: 100%">
         <template v-for="item in list" v-if="item.meta && !item.meta.hidden">
             <el-menu-item v-if="!item.meta || !item.meta.hasChildren" :index="(parentPath===undefined||parentPath===''?'':parentPath+'/') + item.path">
                 <icon v-if="item.meta && item.meta.icon" :name="item.meta.icon" scale="1.6"></icon>

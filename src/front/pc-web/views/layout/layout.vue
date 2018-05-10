@@ -1,6 +1,8 @@
 <template>
     <div :class="{collapse: sidebar.isCollapse}">
-        <sidebar class="sidebar-container" ></sidebar>
+        <div class="sidebar-container">
+            <sidebar :isCollapse="sidebar.isCollapse"></sidebar>
+        </div>
         <div class="main-container">
             <navbar></navbar>
             <main-container></main-container>
@@ -42,28 +44,24 @@
             }
         }
     }
-    .sidebar-container {
-        width: 199px;
-        position: absolute;
-        left: 0;
-        top: 0;
+    .el-menu-vertical-demo:not(.el-menu--collapse) {
+        width: 200px;
         min-height: 100%;
-        overflow: auto;
-        transition: all 0.3s ease 0s;
+    }
+    .sidebar-container {
+        width: 200px;
+        min-height: 100%;
+        float: left;
+        transition: width 0.3s;
     }
     .main-container {
         overflow: hidden;
-        position: absolute;
-        left: 200px;
-        right: 0px;
-        top: 0;
         min-height: 100%;
-        transition: all 0.3s ease 0s;
     }
-    .collapse .sidebar-container {
-        width: 64px;
-    }
-    .collapse .main-container {
-        left: 64px;
+    .collapse {
+        .sidebar-container {
+            width: 64px;
+            transition: width 0.3s ease 0s;
+        }
     }
 </style>

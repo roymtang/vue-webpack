@@ -4,7 +4,7 @@
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose"
-            :collapse="sidebar.isCollapse"
+            :collapse="isCollapse"
             router>
 
         <menu-item :list="routerList"></menu-item>
@@ -16,6 +16,7 @@
     import MenuItem from './menuItem.vue'
 
     export default {
+        props: ['isCollapse'],
         components: {MenuItem},
         data() {
             return {
@@ -31,7 +32,7 @@
             }
         },
         computed: {
-            ...mapGetters(['sidebar', 'routerList'])
+            ...mapGetters(['routerList'])
         }
     }
 </script>
