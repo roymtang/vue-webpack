@@ -5,7 +5,8 @@ const app = {
         sidebar: {
             isCollapse: !!+Cookies.get('sidebarStatus')
         },
-        language: Cookies.get('language') || 'zh_CN'
+        language: Cookies.get('language') || 'zh_CN',
+        templateID: ''
     },
     mutations: {
         TOGGLE_SIDEBAR: state => {
@@ -20,6 +21,9 @@ const app = {
         SET_LANGUAGE: (state, language) => {
             state.language = language
             Cookies.set('language', language)
+        },
+        SET_TEMPLATE_ID: (state, id) => {
+            state.templateID = id
         }
     },
     actions: {
@@ -28,6 +32,9 @@ const app = {
         },
         setLanguage({commit}, language) {
             commit('SET_LANGUAGE', language)
+        },
+        setTemplateID({commit}, id) {
+            commit('SET_TEMPLATE_ID', id)
         }
     }
 }

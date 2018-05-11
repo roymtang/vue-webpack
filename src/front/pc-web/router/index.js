@@ -22,6 +22,9 @@ const TableIndex = resolve => require(['../views/table'], resolve)
 const BaseTable = resolve => require(['../views/table/base'], resolve)
 const Steps = resolve => require(['../views/steps'], resolve)
 
+const Test1 = resolve => require(['../views/index/Test1'], resolve)
+const Test2 = resolve => require(['../views/index/Test2'], resolve)
+
 
 export const constantRouterMap = [
     {
@@ -52,7 +55,25 @@ export const constantRouterMap = [
             {
                 path: 'index',
                 name: 'index_index',
-                component: Index
+                component: Index,
+                children: [
+                    {
+                        path: 'aa',
+                        name: 'index_index_aa',
+                        component: Test1,
+                        meta: {
+                            hidden: true
+                        }
+                    },
+                    {
+                        path: 'bb',
+                        name: 'index_index_bb',
+                        component: Test2,
+                        meta: {
+                            hidden: true
+                        }
+                    }
+                ]
             }
         ]
     },

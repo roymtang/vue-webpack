@@ -6,6 +6,7 @@
 
 <script>
     import Layout from './views/layout/layout.vue'
+
     export default {
         name: 'App',
         components: {Layout}

@@ -1,13 +1,22 @@
 <template>
     <div>
         <keep-alive>
-            <router-view></router-view>
+            <router-view :key="templateID"></router-view>
         </keep-alive>
     </div>
 </template>
 
 <script>
-    export default {
+    import { mapGetters } from 'vuex'
 
+    export default {
+        watch: {
+            '$route' (to, from) {
+                this.$store.dispatch('setTemplateID', new Date().getTime())
+            }
+        },
+        computed: {
+            ...mapGetters(['templateID'])
+        }
     }
 </script>

@@ -5,7 +5,8 @@ const getters = {
     sidebar: state => state.app.sidebar,
     language: state => state.app.language,
     routerList: state => state.permission.routers,
-    userInfo: state => state.user
+    userInfo: state => state.user,
+    templateID: state => state.app.templateID
 }
 
 export default getters
