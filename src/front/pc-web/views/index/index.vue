@@ -5,6 +5,9 @@
             <el-button @click="aa">aa</el-button>
             <el-button @click="bb">bb</el-button>
         </p>
+        <p>
+            <img src="../../resources/private/C-JBW00012-W-RD-D-1.jpg"/>
+        </p>
         <router-view></router-view>
     </div>
 </template>
