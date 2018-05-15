@@ -3,6 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 var webpack = require('webpack')
+const vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
@@ -39,6 +40,7 @@ module.exports = {
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
+                options: vueLoaderConfig
             },
             {
                 test: /\.js$/,

@@ -19,8 +19,8 @@ const webpackConfig = merge(baseWebpackConfig, {
     devtool: config.build.productionSourceMap ? config.build.devtool : false,
     output: {
         path: config.build.assetsRoot,
-        filename: utils.assetsPath('js/[name].js'),
-        chunkFilename: utils.assetsPath('js/[id].js')
+        filename: utils.assetsPath('js/[name].[chunkhash].js'),
+        chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
     },
     plugins: [
         new webpack.DefinePlugin({
@@ -36,7 +36,7 @@ const webpackConfig = merge(baseWebpackConfig, {
             parallel: true
         }),
         new ExtractTextPlugin({
-            filename: utils.assetsPath('css/[name].css'),
+            filename: utils.assetsPath('css/[name].[contenthash].css'),
             allChunks: true,
         }),
         new OptimizeCSSPlugin({
@@ -56,6 +56,7 @@ const webpackConfig = merge(baseWebpackConfig, {
                 )
             }
         }),
+
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
             chunks: ['mobile-app-index', 'mobile-web-index', 'pc-app-index', 'pc-web-index'],

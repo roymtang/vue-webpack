@@ -30,11 +30,11 @@
 <style rel="stylesheet/less" lang="less" scoped>
     .nav-container {
         overflow: hidden;
-        .collapse-btn {
+        & .collapse-btn {
             float: left;
-            :hover {
+            & :hover {
                 cursor: pointer;
-            }
+            };
         }
     }
 

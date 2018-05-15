@@ -16,6 +16,7 @@
     var _data = require('./data_line.json')
 
     export default {
+        name: 'charts_line',
         data() {
             return {
 

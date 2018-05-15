@@ -14,6 +14,7 @@
 
 <script>
     export default {
+        name: 'steps',
         data() {
             return {
                 active: 0

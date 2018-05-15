@@ -3,8 +3,9 @@
         <div class="sidebar-container">
             <sidebar :isCollapse="sidebar.isCollapse"></sidebar>
         </div>
-        <div class="main-container">
+        <div class="main-container" :style="{height: clientHeight}">
             <navbar></navbar>
+            <div>{{sidebar.height}}</div>
             <main-container></main-container>
         </div>
     </div>
@@ -21,11 +22,18 @@
         components: {Sidebar, Navbar, MainContainer},
         data () {
             return {
-
+                clientHeight: ''
             }
         },
         computed: {
             ...mapGetters(['sidebar'])
+        },
+        mounted () {
+            this.clientHeight = `${document.body.clientHeight}px`;
+            const that = this;
+            window.onresize = function () {
+                that.clientHeight = `${document.body.clientHeight}px`;
+            }
         }
     }
 </script>
@@ -50,18 +58,29 @@
     }
     .sidebar-container {
         width: 200px;
-        min-height: 100%;
-        float: left;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
         transition: width 0.3s;
+        ul {
+            height: 100%;
+        }
     }
     .main-container {
-        overflow: hidden;
-        min-height: 100%;
+        margin-left: 201px;
+        overflow-y: auto;
+        min-width: 800px;
+        transition: margin-left 0.3s ease 0s;
     }
     .collapse {
         .sidebar-container {
             width: 64px;
             transition: width 0.3s ease 0s;
+        }
+        .main-container {
+            margin-left: 65px;
+            transition: margin-left 0.3s ease 0s;
         }
     }
 </style>

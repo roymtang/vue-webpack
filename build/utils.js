@@ -16,8 +16,15 @@ exports.assetsPath = function (_path) {
 exports.cssLoaders = function (options) {
     options = options || {}
 
+    const cssLoader = {
+        loader: 'css-loader',
+        options: {
+            sourceMap: options.sourceMap
+        }
+    }
+
     function generateLoaders (loader, loaderOptions) {
-        const loaders = []
+        const loaders = [cssLoader]
 
         if (loader) {
             loaders.push({
@@ -39,8 +46,8 @@ exports.cssLoaders = function (options) {
     }
 
     return {
-        css: generateLoaders('css'),
-        postcss: generateLoaders('postcss'),
+        css: generateLoaders(),
+        postcss: generateLoaders(),
         less: generateLoaders('less'),
         sass: generateLoaders('sass', { indentedSyntax: true }),
         scss: generateLoaders('sass'),

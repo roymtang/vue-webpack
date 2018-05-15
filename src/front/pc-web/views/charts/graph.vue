@@ -13,6 +13,7 @@
     var _data = require('./data_graph.json')
 
     export default {
+        name: 'charts_graph',
         data() {
             return {
 

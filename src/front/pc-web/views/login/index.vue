@@ -23,6 +23,7 @@
 
 <script>
     export default {
+        name: 'login',
         data () {
             return {
                 loginInfo: {
@@ -57,7 +58,7 @@
     }
 </script>
 
-<style scoped>
+<style  rel="stylesheet/less" lang="less" scoped>
     .login-box {
         width: 500px;
         margin: 20% auto;
