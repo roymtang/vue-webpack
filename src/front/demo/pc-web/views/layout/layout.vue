@@ -1,6 +1,6 @@
 <template>
     <div :class="{collapse: sidebar.isCollapse}">
-        <div class="sidebar-container">
+        <div class="sidebar-container" :style="{height: clientHeight}">
             <sidebar :isCollapse="sidebar.isCollapse"></sidebar>
         </div>
         <div class="main-container" :style="{height: clientHeight}">
@@ -54,12 +54,11 @@
     }
     .el-menu-vertical-demo:not(.el-menu--collapse) {
         width: 200px;
-        min-height: 100%;
     }
     .sidebar-container {
-        width: 200px;
-        height: 100%;
+        width: 201px;
         position: absolute;
+        overflow-y: auto;
         top: 0;
         left: 0;
         transition: width 0.3s;
@@ -68,14 +67,14 @@
         }
     }
     .main-container {
-        margin-left: 201px;
+        margin-left: 200px;
         overflow-y: auto;
         min-width: 800px;
         transition: margin-left 0.3s ease 0s;
     }
     .collapse {
         .sidebar-container {
-            width: 64px;
+            width: 65px;
             transition: width 0.3s ease 0s;
         }
         .main-container {
