@@ -73,7 +73,7 @@
 </template>
 
 <script>
-    import rules from 'src/front/common/validation'
+    import rules from 'src/front/frame/validation'
     export default {
         data () {
             return {

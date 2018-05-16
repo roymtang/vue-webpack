@@ -4,6 +4,7 @@
         <p>
             <el-button @click="aa">aa</el-button>
             <el-button @click="bb">bb</el-button>
+            {{path1}}
         </p>
         <p>
             <img src="../../resources/private/C-JBW00012-W-RD-D-1.jpg"/>
@@ -17,10 +18,12 @@
 </style>
 
 <script>
+    const path = require('path')
+
     export default {
         data() {
             return {
-
+                path1: path.join(__dirname, 'aa', 'cc')
             }
         },
         methods: {
