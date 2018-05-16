@@ -24,22 +24,22 @@ module.exports = {
         index: [
             {
                 filename: 'mobile-app-index.html',
-                template: path.resolve(__dirname, '../src/front/mobile-app/index.html'),
+                template: path.resolve(__dirname, '../src/front/demo/mobile-app/index.html'),
                 chunks: ['mobile-app-index', 'common', 'vendor', 'manifest']
             },
             {
                 filename: 'mobile-web-index.html',
-                template: path.resolve(__dirname, '../src/front/mobile-web/index.html'),
+                template: path.resolve(__dirname, '../src/front/demo/mobile-web/index.html'),
                 chunks: ['mobile-web-index', 'common', 'vendor', 'manifest']
             },
             {
                 filename: 'pc-app-index.html',
-                template: path.resolve(__dirname, '../src/front/pc-app/index.html'),
+                template: path.resolve(__dirname, '../src/front/demo/pc-app/index.html'),
                 chunks: ['pc-app-index', 'common', 'vendor', 'manifest']
             },
             {
                 filename: 'pc-web-index.html',
-                template: path.resolve(__dirname, '../src/front/pc-web/index.html'),
+                template: path.resolve(__dirname, '../src/front/demo/pc-web/index.html'),
                 chunks: ['pc-web-index', 'common', 'vendor', 'manifest']
             }
         ]
@@ -50,22 +50,22 @@ module.exports = {
         index: [
             {
                 filename: path.resolve(__dirname, '../dist/mobile-app-index.html'),
-                template: path.resolve(__dirname, '../src/front/mobile-app/index.html'),
+                template: path.resolve(__dirname, '../src/front/demo/mobile-app/index.html'),
                 chunks: ['mobile-app-index', 'common', 'vendor', 'manifest']
             },
             {
                 filename: path.resolve(__dirname, '../dist/mobile-web-index.html'),
-                template: path.resolve(__dirname, '../src/front/mobile-web/index.html'),
+                template: path.resolve(__dirname, '../src/front/demo/mobile-web/index.html'),
                 chunks: ['mobile-web-index', 'common', 'vendor', 'manifest']
             },
             {
                 filename: path.resolve(__dirname, '../dist/pc-app-index.html'),
-                template: path.resolve(__dirname, '../src/front/pc-app/index.html'),
+                template: path.resolve(__dirname, '../src/front/demo/pc-app/index.html'),
                 chunks: ['pc-app-index', 'common', 'vendor', 'manifest']
             },
             {
                 filename: path.resolve(__dirname, '../dist/pc-web-index.html'),
-                template: path.resolve(__dirname, '../src/front/pc-web/index.html'),
+                template: path.resolve(__dirname, '../src/front/demo/pc-web/index.html'),
                 chunks: ['pc-web-index', 'common', 'vendor', 'manifest']
             }
         ],
@@ -73,10 +73,10 @@ module.exports = {
         assetsRoot: path.resolve(__dirname, '../dist'),
         // 编译时拷贝的静态资源文件目录
         staticAssetsSubDirectory: [
-            {from: path.resolve(__dirname, '../src/front/pc-web/resources'), to: '../dist/resources/pc-web'},
-            {from: path.resolve(__dirname, '../src/front/pc-app/resources'), to: '../dist/resources/pc-app'},
-            {from: path.resolve(__dirname, '../src/front/mobile-web/resources'), to: '../dist/resources/mobile-web'},
-            {from: path.resolve(__dirname, '../src/front/mobile-app/resources'), to: '../dist/resources/mobile-app'}
+            {from: path.resolve(__dirname, '../src/front/demo/pc-web/resources'), to: '../dist/resources/pc-web'},
+            {from: path.resolve(__dirname, '../src/front/demo/pc-app/resources'), to: '../dist/resources/pc-app'},
+            {from: path.resolve(__dirname, '../src/front/demo/mobile-web/resources'), to: '../dist/resources/mobile-web'},
+            {from: path.resolve(__dirname, '../src/front/demo/mobile-app/resources'), to: '../dist/resources/mobile-app'}
         ],
         // 编译生成的文件目录
         assetsSubDirectory: '../dist',

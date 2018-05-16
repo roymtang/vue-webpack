@@ -60,8 +60,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
             chunks: ['mobile-app-index', 'mobile-web-index', 'pc-app-index', 'pc-web-index'],
-            filename: utils.assetsPath('js/common.js'),
-            minChunks: 2
+            minChunks: 4
         }),
         new CopyWebpackPlugin(config.build.staticAssetsSubDirectory),
     ].concat(utils.createProdHtml(config.build.index))

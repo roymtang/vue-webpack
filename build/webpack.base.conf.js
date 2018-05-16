@@ -12,10 +12,10 @@ function resolve(dir) {
 module.exports = {
     context: path.resolve(__dirname, '../'),
     entry: {
-        'mobile-app-index': './src/front/mobile-app/main.js',
-        'mobile-web-index': './src/front/mobile-web/main.js',
-        'pc-app-index': './src/front/pc-app/main.js',
-        'pc-web-index': './src/front/pc-web/main.js',
+        'mobile-app-index': './src/front/demo/mobile-app/main.js',
+        'mobile-web-index': './src/front/demo/mobile-web/main.js',
+        'pc-app-index': './src/front/demo/pc-app/main.js',
+        'pc-web-index': './src/front/demo/pc-web/main.js'
     },
     output: {
         path: config.build.assetsRoot,
@@ -29,10 +29,10 @@ module.exports = {
             'src': path.resolve(__dirname, '../src'),
             'config': path.resolve(__dirname, '../config'),
             'components': path.resolve(__dirname, '../src/components'),
-            'mobileWeb': path.resolve(__dirname, '../src/front/mobile-web'),
-            'mobileApp': path.resolve(__dirname, '../src/front/mobile-app'),
-            'pcWeb': path.resolve(__dirname, '../src/front/pc-web'),
-            'pcApp': path.resolve(__dirname, '../src/front/pc-app')
+            'mobileWeb': path.resolve(__dirname, '../src/front/demo/mobile-web'),
+            'mobileApp': path.resolve(__dirname, '../src/front/demo/mobile-app'),
+            'pcWeb': path.resolve(__dirname, '../src/front/demo/pc-web'),
+            'pcApp': path.resolve(__dirname, '../src/front/demo/pc-app')
         }
     },
     module: {
@@ -51,7 +51,7 @@ module.exports = {
             {
                 test: /\.svg$/,
                 loader: 'svg-sprite-loader',
-                include: [resolve('src/front/common/icons')],
+                include: [resolve('src/front/frame/icons')],
                 options: {
                     symbolId: 'icon-[name]'
                 }
@@ -59,7 +59,7 @@ module.exports = {
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader: 'url-loader',
-                exclude: [resolve('src/front/common/icons')],
+                exclude: [resolve('src/front/frame/icons')],
                 options: {
                     limit: 10000,
                     name: utils.assetsPath('img/[name].[hash:7].[ext]')
