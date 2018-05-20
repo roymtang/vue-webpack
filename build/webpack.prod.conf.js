@@ -56,7 +56,10 @@ const webpackConfig = merge(baseWebpackConfig, {
                 )
             }
         }),
-
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'manifest',
+            minChunks: Infinity
+        }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
             chunks: ['mobile-app-index', 'mobile-web-index', 'pc-app-index', 'pc-web-index'],

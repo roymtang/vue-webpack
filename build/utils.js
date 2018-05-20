@@ -13,6 +13,7 @@ exports.assetsPath = function (_path) {
     return path.posix.join(assetsSubDirectory, _path)
 }
 
+// css预处理
 exports.cssLoaders = function (options) {
     options = options || {}
 
@@ -71,6 +72,7 @@ exports.styleLoaders = function (options) {
     return output
 }
 
+// 开发环境html生成
 exports.createDevHtml = function (options) {
     let output = [];
     options.map(function (item) {
@@ -86,6 +88,7 @@ exports.createDevHtml = function (options) {
     return output;
 }
 
+// 生产环境html生成
 exports.createProdHtml = function (options) {
     let output = [];
     options.map(function (item) {
